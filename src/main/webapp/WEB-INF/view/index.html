@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1> This is my second try HTML</h1>
+<h1> This is my UserTable</h1>
+
+
+<th:block>
+    <table>
+        <tr>
+            <th> User ID </th>
+            <th> User NAME </th>
+            <th> User LASTNAME </th>
+            <th> User AGE </th>
+        </tr>
+        <tr th:each="user : ${usersList}" >
+            <th th:text="${user.getId()}"></th>
+            <th th:text="${user.getName()}"></th>
+            <th th:text="${user.getLastName()}"></th>
+            <th th:text="${user.getAge()}"></th>
+        </tr>
+
+    </table>
+</th:block>
 </body>
 </html>
