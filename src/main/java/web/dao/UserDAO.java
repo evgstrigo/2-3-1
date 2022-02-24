@@ -1,7 +1,7 @@
-package web.DAO;
+package web.dao;
 
 import org.springframework.stereotype.Repository;
-import web.model.User;
+import web.models.User;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public interface UserDAO {
 
     public void addUser(User user);
 
-    public List<User> getUserList();
+    public List<User> getAllUsers();
 
     public User getUserById(int id);
 

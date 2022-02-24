@@ -9,7 +9,7 @@
 <h1 >Adding new User</h1>
 <h2>Enter data</h2>
 
-<form action="#" th:action="@{/saveUser}" th:object="${addedUser}" method="post">
+<form action="#" th:action="@{/users/saveUser}" th:object="${addedUser}" method="post">
     <table border="1">
         <tr>
             <td><label th:text="Name" /></td>

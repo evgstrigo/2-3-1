@@ -1,18 +1,14 @@
-package web.DAO;
+package web.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Component;
 import web.config.HibernateConfig;
-import web.model.User;
+import web.models.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
-
-@Transactional
+@Component
 public class UserDAOImpl implements UserDAO {
 
     private SessionFactory sessionFactory;
@@ -31,11 +27,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> getUserList() {
-        List<User> userList = new ArrayList<>();
+    public List<User> getAllUsers() {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        userList = session.createQuery("from User").getResultList();
+        List<User> userList = session.createQuery("from User").getResultList();
+        userList.add(new User("Eugenio", "Strigo", 32));
+        userList.add(new User("Ivan", "Popov", 22));
         session.getTransaction().commit();
         return userList;
     }

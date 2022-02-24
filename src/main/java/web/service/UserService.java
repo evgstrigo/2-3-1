@@ -1,6 +1,6 @@
 package web.service;
 
-import web.model.User;
+import web.models.User;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ public interface UserService {
 
     public void addUser(User user);
 
-    public List<User> getUserList();
+    public List<User> getAllUsers();
 
     public User getUserById(int id);
 

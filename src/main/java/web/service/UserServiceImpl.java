@@ -1,38 +1,46 @@
 package web.service;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import web.DAO.FakeUserDAOImpl;
-import web.DAO.UserDAO;
-import web.DAO.UserDAOImpl;
-import web.model.User;
+import web.dao.UserDAOImpl;
+import web.models.User;
 
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+//    Для Hibernate
+
+        private UserDAOImpl userDAO;
+    @Autowired
+    public UserServiceImpl(UserDAOImpl userDAO) {
+        this.userDAO = userDAO;
+    }
 
 
-    private UserDAO UserDAO = new UserDAOImpl();
+   // Для Fake
+//    @Qualifier("fakeUserDAOImpl")
+//    @Autowired
+//    private FakeUserDAOImpl userDAO;
 
 
     @Override
     public void addUser(User user) {
-        UserDAO.addUser(user);
+        userDAO.addUser(user);
     }
 
     @Override
-    public List<User> getUserList() {
-        return UserDAO.getUserList();
+    public List<User> getAllUsers() {
+        return userDAO.getAllUsers();
     }
 
     @Override
     public User getUserById(int id) {
-        return UserDAO.getUserById(id);
+        return userDAO.getUserById(id);
     }
 
     @Override
     public void deleteUser(int id) {
-        UserDAO.deleteUser(id);
+        userDAO.deleteUser(id);
     }
 }
