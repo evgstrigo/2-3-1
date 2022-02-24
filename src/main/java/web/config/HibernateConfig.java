@@ -10,7 +10,7 @@ import web.model.User;
 import java.util.Properties;
 
 
-@org.springframework.context.annotation.Configuration
+
 public class HibernateConfig {
 
     private final static String CONNECTION_URL = "jdbc:mysql://localhost:3306/kata_db";

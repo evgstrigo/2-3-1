@@ -8,12 +8,12 @@ import java.util.List;
 @Repository
 public interface UserDAO {
 
-    public void createUserTable();
-
     public void addUser(User user);
 
     public List<User> getUserList();
 
     public User getUserById(int id);
+
+    public void deleteUser(int id);
 
 }

@@ -9,9 +9,6 @@ public class FakeUserDAOImpl implements UserDAO{
 
     public static List<User> usersList = new ArrayList<>();
 
-    @Override
-    public void createUserTable() {
-    }
 
     @Override
     public void addUser(User user) {
@@ -26,5 +23,11 @@ public class FakeUserDAOImpl implements UserDAO{
     @Override
     public User getUserById(int id) {
         return usersList.get(id);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+
+        usersList.remove(getUserById(id));
     }
 }
