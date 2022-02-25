@@ -11,22 +11,23 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 //    Для Hibernate
 
-        private UserDAOImpl userDAO;
+    private UserDAOImpl userDAO;
+
     @Autowired
     public UserServiceImpl(UserDAOImpl userDAO) {
         this.userDAO = userDAO;
     }
 
 
-   // Для Fake
+    // Для Fake
 //    @Qualifier("fakeUserDAOImpl")
 //    @Autowired
 //    private FakeUserDAOImpl userDAO;
 
 
     @Override
-    public void addUser(User user) {
-        userDAO.addUser(user);
+    public void updateUser(User user) {
+        userDAO.updateUser(user);
     }
 
     @Override
@@ -43,4 +44,5 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(int id) {
         userDAO.deleteUser(id);
     }
+
 }

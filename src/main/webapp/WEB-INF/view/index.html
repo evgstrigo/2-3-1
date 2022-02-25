@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>All users</title>
@@ -53,19 +53,29 @@
     <table border="1" >
         <tr>
             <th>ID</th>
-            <th>NAME</th>
-            <th>LASTNAME</th>
-            <th>AGE</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Age</th>
         </tr>
         <tr th:each="user : ${users}">
             <td th:text="${user.getId()}"></td>
             <td th:text="${user.getName()}"></td>
             <td th:text="${user.getLastName()}"></td>
             <td th:text="${user.getAge()}"></td>
+            <td>
+                <form  th:action="@{/{id}/edit (id=${user.getId()})}" th:method="get">
+                    <input type="submit" value="Edit">
+                </form>
+            </td>
+            <td >
+                <form  th:action="@{/{id}(id=${user.getId()})}" th:method="DELETE">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
     </table>
 <br>
-<form th:action="@{/users/new}" method="post">
+<form th:action="@{/new}" th:method="GET">
     <input name="Add new User" type="submit" value="Add User">
 
 </form>
