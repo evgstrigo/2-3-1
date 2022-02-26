@@ -2,6 +2,7 @@ package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import web.dao.JPADAOImpl;
 import web.dao.UserDAOImpl;
 import web.models.User;
 
@@ -10,13 +11,21 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 //    Для Hibernate
+//
+//    private UserDAOImpl userDAO;
+//
+//    @Autowired
+//    public UserServiceImpl(UserDAOImpl userDAO) {
+//        this.userDAO = userDAO;
+//    }
 
-    private UserDAOImpl userDAO;
+    private JPADAOImpl userDAO;
 
     @Autowired
-    public UserServiceImpl(UserDAOImpl userDAO) {
+    public UserServiceImpl(JPADAOImpl userDAO) {
         this.userDAO = userDAO;
     }
+
 
 
     // Для Fake
